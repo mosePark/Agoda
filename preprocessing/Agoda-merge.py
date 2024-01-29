@@ -1,4 +1,5 @@
 import os
+import json
 
 import numpy as np
 import pandas as pd
@@ -46,6 +47,7 @@ df_1 : batch practice (나머지 데이터)
 df_2 : batch process2
 df_3 : batch process3
 df_4 : passive
+df_5 : 
 '''
 
 folder_path = 'C:/Users/UOS/proj_0/data/agoda/active-batch'
@@ -59,6 +61,8 @@ folder_path = 'C:/Users/UOS/proj_0/data/agoda/active-batch-1'
 csv_dataframes = load_csv_files(folder_path)
 
 df_1 = pd.concat(csv_dataframes, axis=0).reset_index(drop=True)
+
+df_1['hotel_name'].replace("Paramount Hotel Times Square", "Paramount Times Square", inplace = True)
 
 # =====
 
@@ -81,16 +85,36 @@ csv_dataframes = load_csv_files(folder_path)
 
 df_4 = pd.concat(csv_dataframes, axis=0).reset_index(drop=True)
 
+# =====
+
+df_5 = pd.read_csv("C:/Users/UOS/proj_0/preprocessing/not-collect-hotel.csv", index_col = 0)
+
 
 ''' data merge
-df = df_0 + df_1 + df_2 + df_3 + df_4
+df = df_0 + df_1 + df_2 + df_3 + df_4 + df_5
 
 '''
 
-df = pd.concat([df_0, df_1, df_2, df_3, df_4], axis=0).reset_index(drop=True)
-# df.drop(df.columns[-1], axis=1, inplace=True) # 리뷰페이지 제거
+df = pd.concat([df_0, df_1, df_2, df_3, df_4, df_5], axis=0).reset_index(drop=True)
+df.drop(df.columns[-1], axis=1, inplace=True) # 리뷰페이지 제거
 
 df = dedupe(df)
 
 df.to_csv("agoda.csv", index = False, encoding = 'utf-8-sig')
 df.to_excel("전체데이터(조회용).xlsx", index = False)
+
+
+
+
+'''
+호텔 잘 모았는지 체크
+
+dictionary 호텔 이름 vs 데이터 전부 합친 호텔 이름
+
+못 모은 호텔 리뷰데이터는 다시 모으기 - "not-collect-hotel.py"
+'''
+
+with open('C:/Users/UOS/proj_0/selenium/Code/all-hotel-web.txt', 'r') as file:
+    dic = json.load(file)
+
+not_collect_hotel = list(set(dic.keys()) - set(df['hotel_name']))
