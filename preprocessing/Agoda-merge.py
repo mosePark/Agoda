@@ -41,13 +41,21 @@ def dedupe(df) :
     return df_no_duplicates
 
 '''data load
-df_1 : batch process
+df_0 : batch process
+df_1 : batch practice (나머지 데이터)
 df_2 : batch process2
 df_3 : batch process3
 df_4 : passive
 '''
 
 folder_path = 'C:/Users/UOS/proj_0/data/agoda/active-batch'
+csv_dataframes = load_csv_files(folder_path)
+
+df_0 = pd.concat(csv_dataframes, axis=0).reset_index(drop=True)
+
+# =====
+
+folder_path = 'C:/Users/UOS/proj_0/data/agoda/active-batch-1'
 csv_dataframes = load_csv_files(folder_path)
 
 df_1 = pd.concat(csv_dataframes, axis=0).reset_index(drop=True)
@@ -75,13 +83,14 @@ df_4 = pd.concat(csv_dataframes, axis=0).reset_index(drop=True)
 
 
 ''' data merge
-df = df_1 + df_2 + df_3 + df_4
+df = df_0 + df_1 + df_2 + df_3 + df_4
 
 '''
-df = pd.concat([df_1, df_2, df_3, df_4], axis=0).reset_index(drop=True)
+
+df = pd.concat([df_0, df_1, df_2, df_3, df_4], axis=0).reset_index(drop=True)
 # df.drop(df.columns[-1], axis=1, inplace=True) # 리뷰페이지 제거
 
 df = dedupe(df)
 
-
-df.to_excel("전체데이터.xlsx", index = False)
+df.to_csv("agoda.csv", index = False, encoding = 'utf-8-sig')
+df.to_excel("전체데이터(조회용).xlsx", index = False)
