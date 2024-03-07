@@ -11,9 +11,9 @@ import re
 데이터 로드
 '''
 
-os.chdir('C:/Users/UOS/Desktop/Agoda-Data/raw')
+os.chdir('/.../Agoda-Data/raw')
 
-df = pd.read_csv("agoda+y_hat.csv", index_col=0)
+df = pd.read_csv("agoda.csv", index_col=0)
 df.head()
 
 df.dtypes
