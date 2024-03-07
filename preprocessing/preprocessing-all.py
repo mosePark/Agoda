@@ -24,7 +24,23 @@ def extract_score(text):
         # 숫자가 없을 경우 None 반환
         return None
 
+def label_encoding(series: pd.Series) -> pd.Series:
+    """범주형 데이터를 시리즈 형태로 받아 숫자형 데이터로 변환"""
 
+    my_dict = {}
+
+    # 모든 요소를 문자열로 변환
+    series = series.astype(str)
+
+    for idx, value in enumerate(sorted(series.unique())):
+        my_dict[value] = idx
+    series = series.map(my_dict)
+    print(my_dict)
+
+    return series
+
+def apply_month_mapping(series, mapping):
+    return series.map(lambda x: mapping.get(str(x), None))
 
 import numpy as np
 import pandas as pd
@@ -33,7 +49,7 @@ import os
 import re
 from collections import Counter
 
-os.chdir('C:/Users/UOS/Desktop/Agoda-Data/raw')
+os.chdir('.../Agoda-Data/raw')
 
 agoda = pd.read_csv("agoda+y_hat.csv", index_col=0)
 agoda.head()
@@ -52,7 +68,7 @@ drop_hotel = ['Luxury 3BR Duplex w Private Patio in Upper East',
 print("총 호텔 수는 : ", len(another))
 
 for i in range(len(drop_hotel)) :
-    df = df[df['hotel_name'] != drop_hotel[i]]
+    agoda = agoda[agoda['hotel_name'] != drop_hotel[i]]
     another = another[another['hotel_name'] != drop_hotel[i]]
 
 print("총 호텔 수는 : ", len(another))
@@ -170,6 +186,65 @@ for i in range(len(df)) :
     y_hat_value.append(extract_score(df['y_hat'][i]))
 
 df['y_hat_'] = y_hat_value
+
+'''
+필요없는 두 변수 제거
+'''
+df = df.drop(['Country', 'Room Type'], axis=1)
+df.reset_index(inplace=True)
+
+'''
+결측값 데이터 제거
+'''
+df.dropna(inplace=True)
+
+'''
+여행객 유형 레이블 인코딩 obj -> number
+'''
+
+# 레이블 인코딩할 칼럼들
+label_columns = [
+    'Traveler Type'
+]
+
+for col in label_columns:
+    df[col] = label_encoding(df[col])
+
+
+# month는 따로 가변수 처리
+month_mapping = {
+    'January': 1,
+    'February': 2,
+    'March': 3,
+    'April': 4,
+    'May': 5,
+    'June': 6,
+    'July': 7,
+    'August': 8,
+    'September': 9,
+    'October': 10,
+    'November': 11,
+    'December': 12,
+}
+
+df['stay_month'] = apply_month_mapping(df['Stay_month'], month_mapping)
+df['review_month'] = apply_month_mapping(df['Review_month'], month_mapping)
+
+# '''
+# 데이터 타입 변경
+# '''
+# print(df.dtypes)
+
+# # df['Country'] = df['Country'].astype(float)
+# # df['Traveler Type'] = df['Traveler Type'].astype(float)
+# df['Stay_year'] = df['Stay_year'].astype(float)
+# df['stay_month'] = df['stay_month'].astype(float)
+# df['Review_year'] = df['Review_year'].astype(float)
+# df['review_month'] = df['review_month'].astype(float)
+# df['Review_day'] = df['Review_day'].astype(float)
+# df['room_type'] = df['room_type'].astype(float)
+# df['Non_smoking'] = df['Non_smoking'].astype(float)
+# df['View'] = df['View'].astype(float)
 
 
 
