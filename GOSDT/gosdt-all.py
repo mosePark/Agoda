@@ -19,7 +19,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from gosdt import GOSDT
 from gosdt.model.threshold_guess import compute_thresholds
 
-os.chdir('C:/Users/UOS/Desktop/Agoda-Data/raw')
+os.chdir('.../Agoda-Data/raw')
 
 train = pd.read_csv("train.csv", index_col=0)
 
