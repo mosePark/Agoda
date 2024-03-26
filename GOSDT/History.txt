@@ -1,0 +1,101 @@
+root@ocean-190-mosepark = ~/default/agoda/gosdt-guesses   main ● ?  history                                                                                                                           ✔  ⚡  101  05:42:51 
+    1  
+    2  sudo apt df
+    3  ls
+    4  cd agoda
+    5  ls
+    6  cd gosdt-guesses
+    7  python build.py
+    8  passwd
+    9  apt install sudo
+   10  sudo apt install -y cmake
+   11  apt install sudo
+   12  apt-udate
+   13  apt-get update
+   14  apt install sudo
+   15  sudo apt install -y cmake
+   16  
+   17  sudo apt install -y ninja-build
+   18  sudo apt install -y pkg-config
+   19  pip install --upgrade scikit-build
+   20  pip install --upgrade auditwheel
+   21  sudo apt install -y patchelf
+   22  sudo apt install -y libtbb-dev
+   23  sudo apt install -y libgmp-dev
+   24  python build.py
+   25  ls
+   26  cd agoda
+   27  ls
+   28  cd gosdt-guesses
+   29  python build.py
+   30  
+   31  
+   32  
+   33  
+   34  patchelf --version
+   35  python build.py
+   36  ls
+   37  cd agoda
+   38  cd gosdt-guesses
+   39  python build.py
+   40  locate FindTBB.cmake
+   41  
+   42  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= "/usr/share/cmake-3.10/Modules/"
+   43  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   44  ls
+   45  
+   46  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   47  ls
+   48  cd agoda/gosdt-guesses
+   49  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   50  locate TBBConfig.cmake
+   51  locate tbb-config.cmake
+   52  locate libtbb.so
+   53  export CMAKE_PREFIX_PATH=/usr:$CMAKE_PREFIX_PATH
+   54  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   55  export CMAKE_PREFIX_PATH=/usr:$CMAKE_PREFIX_PATH
+   56  python build.py
+   57  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   58  python build.py
+   59  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   60  locate FindTBB.cmake
+   61  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   62  locate libtbb.so
+   63  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   64  pthread --version
+   65  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH= /usr/share/cmake-3.10/Modules/
+   66  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH=/usr/share/cmake-3.10/Modules/
+   67  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"\n
+   68  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   69  python build.py
+   70  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   71  
+   72  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   73  cd agoda/gosdt-guesses
+   74  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   75  python build.py
+   76  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   77  locate TBB
+   78  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   79  python build.py
+   80  locate libtbb.so
+   81  cmake .. -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu\n
+   82  ls
+   83  cmake . -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu\n
+   84  python build.py
+   85  history
+   86  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   87  cmake . -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu
+   88  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   89* 
+   90  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   91  cd agoda/gosdt-guesses
+   92  cmake . -G "Ninja" -DCMAKE_PREFIX_PATH="/usr/share/cmake-3.10/Modules/"
+   93  locate FindTBB.cmake
+   94  locate libtbb.so
+   95  cmake . -G "Ninja" -DCMAKE_MODULE_PATH="/usr/share/cmake-3.10/Modules/" -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/"
+   96  locate gmp.pc
+   97  echo $PKG_CONFIG_PATH
+   98  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/conda/lib/pkgconfig\n
+   99  echo $PKG_CONFIG_PATH
+  100  cmake . -G "Ninja" -DCMAKE_MODULE_PATH="/usr/share/cmake-3.10/Modules/" -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/"
