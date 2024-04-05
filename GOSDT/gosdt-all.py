@@ -58,6 +58,18 @@ train['view'] = train['view'].astype('category')
 df = train.loc[:, h]
 
 
+# '''
+# data 랜덤 샘플링
+# '''
+
+
+# n_samples = 50
+# s_train = train.groupby('hotel_name').apply(lambda x: x.sample(n=min(len(x), n_samples))).reset_index(drop=True)
+
+
+# df = s_train.loc[:, h]
+
+
 '''
 y : binary
 '''
