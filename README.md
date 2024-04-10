@@ -20,3 +20,5 @@ Agoda-Project
   - [Paper Link](https://arxiv.org/abs/2112.00798)
 - GPT API
   - [API Link](https://platform.openai.com/docs/guides/text-generation)
+- LIME
+  - [LIME Link](https://github.com/marcotcr/lime)
