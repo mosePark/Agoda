@@ -18,7 +18,7 @@ import re
 from openai import OpenAI
 from langchain.chat_models import ChatOpenAI
 
-open_api_key = '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' # key_name = agoda-GPT
+open_api_key = 'your-api-key' # key_name = agoda-GPT
 
 # ===== 데이터 로드
 link = 'C:/Users/UOS/proj_0/preprocessing/'
