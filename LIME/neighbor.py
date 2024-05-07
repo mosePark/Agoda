@@ -9,7 +9,7 @@ import os
 
 
 
-os.chdir('.../raw')
+os.chdir('.../data/')
 
 eng = pd.read_csv("eng.csv", index_col=0)
 
@@ -66,10 +66,6 @@ from lime.lime_text import LimeTextExplainer
 
 cls_nms = ['Not', 'difference']
 
-explainer = LimeTextExplainer(class_names = cls_nms)
-exp = explainer.explain_instance(X_test[5407], pipeline.predict_proba)
-
-exp.show_in_notebook(text=True)
 
 from tqdm import tqdm
 import time
@@ -82,5 +78,20 @@ for idx in tqdm(X_test.index, desc="Processing"):
     if what == "difference":
         differ_idx.append(idx)
         exp.show_in_notebook(text=True)
-        
 
+
+differ_text = []
+for idx in differ_idx :
+    differ_text.append(X_test[idx])
+    print(idx, ' : ',X_test[idx], ' : ' , eng['difference'][idx])
+
+differ = [11951, 2839, 21212, 10495, 20344, 10250]
+
+# EDA true data
+train = pd.read_csv("train.csv", index_col=0)
+differ_train = train.loc[differ]
+
+import openpyxl
+differ_train.to_excel("differ_train.xlsx")
+
+eng['Text'][20344]
