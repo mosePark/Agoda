@@ -9,7 +9,7 @@ import os
 
 
 
-os.chdir('C:/Users/UOS/Desktop/Agoda-Data/raw')
+os.chdir('.../raw')
 
 eng = pd.read_csv("eng.csv", index_col=0)
 
