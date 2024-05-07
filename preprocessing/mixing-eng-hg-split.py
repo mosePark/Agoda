@@ -39,3 +39,35 @@ def extract_english_words(text):
 
 print("원래 출력 : ", df_eng['Text'][19899])
 print("추출 후 출력 : ", extract_english(df_eng['Text'][19899]))
+
+# 방법4 : fasttext
+import fasttext
+model_path = r'/.../lid.176.bin' # download : https://github.com/facebookresearch/fastText/?tab=readme-ov-file
+model = fasttext.load_model(model_path)
+
+
+non_english_texts = []  # 영어가 아닌 텍스트를 저장할 리스트
+failed_detection_texts = []  # 언어 감지에 실패한 텍스트를 저장할 리스트
+
+def fasttext_extract_eng(text):
+    # 텍스트를 문장으로 분리 (간단한 예시로 '.'를 기준으로 분리)
+    sentences = text.split('.')
+    english_sentences = []
+
+    for sentence in sentences:
+        try:
+            # fastText를 사용하여 각 문장의 언어를 감지
+            pred = model.predict(sentence.strip())  # 공백 제거를 추가로 포함
+            # 감지된 언어 코드가 영어('en')인 경우 리스트에 추가
+            if pred[0][0] == '__label__en':
+                english_sentences.append(sentence.strip())
+                return True
+            else:
+                # 영어가 아닌 텍스트를 리스트에 추가
+                non_english_texts.append(sentence.strip())
+                return False
+        except Exception as e:
+            # 감지 실패한 텍스트를 리스트에 추가
+            failed_detection_texts.append(sentence.strip())
+            print(f"Detection failed for sentence: {sentence.strip()} with error {str(e)}")
+            return False
