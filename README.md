@@ -9,7 +9,7 @@ Agoda-Project
 - model : BERT, GPT-2 and etc. (ing)
 
 ## Modeling
-- GPT Turbo 3.5
+- GPT Turbo 3.5 (Based on Langchain)
 - Generalized Optimal Sparse Decision Tree
 - LIME (Local Interpretable model-agnostic Explanation)
 - Anchor (Local Interpretable model-agnostic Explanation for text data)
