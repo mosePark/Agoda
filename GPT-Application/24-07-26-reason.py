@@ -1,5 +1,5 @@
 '''
-Prompt : 
+Prompt : 점수 + 이유 예측
 '''
 
 import os
@@ -63,20 +63,17 @@ llm_chain = LLMChain(llm=llm, prompt=template)
 
 # 예측 결과를 저장할 리스트 초기화
 predicted_scores = []
-predicted_reasons = []
+
 
 # 리뷰 데이터 정보를 입력하고 점수와 이유를 예측합니다.
 for index, row in tqdm(df.iterrows(), total=len(df), desc="Processing Reviews"):
     review = row['Text']
     result = llm_chain.run({"review": review})
-    predicted_score = result.split("Reason:")[0].strip()
-    predicted_reason = result.split("Reason:")[1].strip()
+    predicted_score = result.strip()
     predicted_scores.append(predicted_score)
-    predicted_reasons.append(predicted_reason)
     
     # 예측 결과를 데이터프레임의 해당 행에 추가
     df.at[index, 'y_hat'] = predicted_score
-    df.at[index, 'Reason'] = predicted_reason
     
     # 현재까지의 예측 결과를 파일로 저장
     df.to_csv("Review+Reason.csv", index=False, encoding='utf-8-sig')
