@@ -189,3 +189,73 @@ for i in range(len(bins) - 1):
 # 결과 출력
 for bin_range, mse in mse_by_bin.items():
     print(f'MSE for cosine_similarity in range {bin_range}: {mse}')
+
+#%% 추가파트 cosine vs MSE 꺾은선
+# 주어진 데이터
+similarity_ranges = ['0.0-0.1', '0.1-0.2', '0.2-0.3', '0.3-0.4', '0.4-0.5', '0.5-0.6', '0.6-0.7', '0.7-0.8', '0.8-0.9']
+mse_values = [8.59, 6.06, 4.48, 3.35, 2.90, 3.07, 3.33, 3.43, 1.57]
+
+# x축 레이블을 숫자형으로 변환
+x = [i for i in range(len(similarity_ranges))]
+
+# 꺾은선 그래프 그리기
+plt.figure(figsize=(10, 6))
+plt.plot(x, mse_values, marker='o', linestyle='-', color='b')
+
+# x축 레이블 설정
+plt.xticks(x, similarity_ranges, rotation=45)
+plt.xlabel('Cosine Similarity Range')
+plt.ylabel('MSE')
+plt.title('MSE by Cosine Similarity Range')
+plt.grid(True)
+
+# 그래프 표시
+plt.tight_layout()
+plt.show()
+# %% 
+
+# 코사인 유사도 구간 설정
+bins = np.arange(0, 1.1, 0.1)
+labels = [f'{round(b, 1)}-{round(b+0.1, 1)}' for b in bins[:-1]]
+
+# 코사인 유사도 구간에 따라 범주형 변수 생성
+df2['cosine_bin'] = pd.cut(df2['cosine_similarity'], bins=bins, labels=labels, include_lowest=True)
+
+# 박스 플롯 그리기
+plt.figure(figsize=(12, 8))
+boxplot = df2.boxplot(column='Score', by='cosine_bin', grid=False, showmeans=True)
+
+# 플롯 제목 및 축 레이블 설정
+plt.title('Distribution of Scores by Cosine Similarity Range')
+plt.suptitle('')  # 기본 제목 제거
+plt.xlabel('Cosine Similarity Range')
+plt.ylabel('Score')
+plt.xticks(rotation=45)
+plt.grid(True)
+
+# 그래프 표시
+plt.tight_layout()
+plt.show()
+# %%
+# 실제 점수 구간 설정 (1점부터 10점까지)
+bins = np.arange(1, 12, 1)
+labels = [f'{int(b)}' for b in bins[:-1]]
+
+# 실제 점수 구간에 따라 범주형 변수 생성
+df2['score_bin'] = pd.cut(df2['Score'], bins=bins, labels=labels, include_lowest=True, right=False)
+
+# 박스 플롯 그리기
+plt.figure(figsize=(12, 8))
+boxplot = df2.boxplot(column='cosine_similarity', by='score_bin', grid=False, showmeans=True)
+
+# 플롯 제목 및 축 레이블 설정
+plt.title('Distribution of Cosine Similarity by Score Range')
+plt.suptitle('')  # 기본 제목 제거
+plt.xlabel('Score')
+plt.ylabel('Cosine Similarity')
+plt.xticks(rotation=0)
+plt.grid(True)
+
+# 그래프 표시
+plt.tight_layout()
+plt.show()
