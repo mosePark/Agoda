@@ -20,6 +20,9 @@ Agoda-Project
 - slurm job
 - UBAI and OceanAI
 
+## Question Answering, Summarization (~ing)
+ - evaluation, validity
+
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
