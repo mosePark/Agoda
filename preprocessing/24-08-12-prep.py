@@ -5,7 +5,10 @@
 1. title, text " 제거
 2. title, text 합치는 text로
 3. 결측치, 중복행 제거
+4. 카테고리 점수 데이터 (another.csv) 과 병합
+5. 이외 추가 결측 제거
 '''
+
 #%%
 def remove_trailing_quote(text):
     if isinstance(text, str):
@@ -19,13 +22,14 @@ import os
 import numpy as np
 import pandas as pd
 
-os.chdir('C:/Users/mose/agoda/data/')
+os.chdir('C:/Users/UOS/proj_0/preprocessing/')
 
 df = pd.read_csv("agoda.csv")
 
 df.rename(columns={'hotel_name': 'Hotel'}, inplace=True)
 
 df.isnull().sum()
+
 
 #%% 작업 1
 
@@ -106,11 +110,56 @@ for index, row in df.iterrows():
 df = df[df['Country']!='Unknown'] # Unknown 지우기
 
 df.isnull().sum()
+#%% another 데이터와 병합
 
-'''
-Stay duration : 177
-Room Type : 12,397 
+adf = pd.read_csv("another.csv", index_col=0)
 
-룸타입의 경우 결측 점유율이 높으니 칼럼 자체를 지우는 것이 좋고
-Stay duration은 점유율이 0.5% 여서 무시해도될듯. 근데 일단 남겨둠
-'''
+adf.columns, df_unique.columns
+
+len(adf), len(df_unique)
+
+df = df.merge(adf, how='left', left_on='Hotel', right_on='hotel_name')
+df = df.drop(columns=['hotel_name'])
+
+
+df.isnull().sum()
+
+# 카테고리 점수 결측 29개 조회
+df[df[['Loc_score', 'Clean_score', 'Serv_score', 'Fac_score', 'VfM_score']].isnull().any(axis=1)]
+
+# 각 칼럼의 결측값 인덱스 가져오기
+loc_missing_idx = df[df['Loc_score'].isnull()].index
+clean_missing_idx = df[df['Clean_score'].isnull()].index
+serv_missing_idx = df[df['Serv_score'].isnull()].index
+fac_missing_idx = df[df['Fac_score'].isnull()].index
+vfm_missing_idx = df[df['VfM_score'].isnull()].index
+
+# 모든 결측값 인덱스가 동일한지 확인
+all_missing_idx_equal = (loc_missing_idx.equals(clean_missing_idx) and
+                         clean_missing_idx.equals(serv_missing_idx) and
+                         serv_missing_idx.equals(fac_missing_idx) and
+                         fac_missing_idx.equals(vfm_missing_idx))
+
+# 결과 출력
+print("All indices are equal:", all_missing_idx_equal)
+
+if all_missing_idx_equal:
+    print("The indices of missing values in all five columns are identical.")
+else:
+    print("The indices of missing values in the five columns are not identical.")
+
+# 카테고리 점수 결측 제거
+
+df = df.dropna(subset=['Loc_score'])
+
+df.isnull().sum()
+
+df.info()
+
+df_reset = df.reset_index(drop=True)
+
+
+# %%
+
+df.to_csv("agoda2-original-idx.csv", encoding='utf-8-sig', index=False)
+df_reset.to_csv("agoda2.csv", encoding='utf-8-sig', index=False)
