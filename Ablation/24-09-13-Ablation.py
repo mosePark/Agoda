@@ -394,3 +394,65 @@ plt.grid(True)
 
 # 그래프 보여주기
 plt.show()
+
+#%%
+# 마지막 데이터 병합 코드
+
+# idx = df_1.index
+
+# df_ebd = pd.DataFrame({
+#     '0.1-gen1-ebd': gen1_ebd_0_1,
+#     '0.1-gen2-ebd': gen2_ebd_0_1,
+#     '0.1-gen1-1-ebd': gen1_1_ebd_0_1,
+#     'ori_ebd': ori_ebd,
+#     'gen1_ebd': gen1_ebd,
+#     'gen2_ebd': gen2_ebd,
+#     'gen1-2': gen1_1_ebd,
+#     '1.5-gen1-ebd': gen1_ebd_1_5,
+#     '1.5-gen1-1-ebd': gen1_1_ebd_1_5,
+#     '1.5-gen2-ebd': gen2_ebd_1_5
+# }, index=idx)
+
+
+
+
+# df_1.columns
+
+# cols = ['Hotel', 'Score', 'Country', 'Traveler Type', 'Room Type', 'Stay Duration', 'Title', 'Text', 'Date', 'Full']
+
+
+# df = df_1.loc[:, cols]
+
+# # df_1 = pd.read_csv("ebd/0.1-gen1-1-ebd.csv", index_col=0, encoding='utf-8-sig')
+# # df_2 = pd.read_csv("ebd/0.1-gen2-ebd.csv", index_col=0, encoding='utf-8-sig')
+# # df_7 =  pd.read_csv("ebd/0.1-gen1-ebd.csv", index_col=0, encoding='utf-8-sig')
+
+# # df_3 = pd.read_csv("ebd/1.5-gen1-ebd.csv", index_col=0, encoding='utf-8-sig')
+# # df_4 = pd.read_csv("ebd/1.5-gen1-1-ebd.csv", index_col=0, encoding='utf-8-sig')
+# # df_5 = pd.read_csv("ebd/1.5-gen2-ebd.csv", index_col=0, encoding='utf-8-sig')
+# # df_6 = pd.read_csv("0.7-all.csv", index_col=0, encoding='utf-8-sig')
+
+# df_5
+
+# df['0.1-gen1-text'] = df_1['generated_review']
+# df['0.1-gen2-text'] = df_1['generated_review_2']
+# df['0.1-gen1-1-text'] = df_1['new_generated_review']
+
+# df['0.7-gen1-text'] = df_6['generated_review']
+# df['0.7-gen2-text'] = df_6['generated_review_2']
+# df['0.7-gen1-1-text'] = df_6['new_generated_review']
+
+# df['1.5-gen1-text'] = df_4['generated_review']
+# df['1.5-gen2-text'] = df_5['generated_review_2']
+# df['1.5-gen1-1-text'] = df_4['new_generated_review']
+
+# df_ebd.rename(columns={'gen1-2': 'gen1-1'}, inplace=True)
+
+# #%%
+
+# df.to_csv("df.csv", index=True, encoding='utf-8-sig')
+
+# df_ebd.to_csv("df_ebd.csv", index=True, encoding='utf-8-sig')
+
+
+# df_ebd
