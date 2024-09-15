@@ -23,6 +23,10 @@ Agoda-Project
 ## Question Answering, Summarization (~ing)
  - evaluation, validity
 
+## Hypothesis testing
+ - KS test
+ - ~
+
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
