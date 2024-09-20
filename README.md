@@ -8,7 +8,7 @@ Agoda-Project
 - Based on sklearn : count, tf-idf
 - model : BERT, GPT-2 and etc. (ing)
 
-## Modeling
+## Trial and Error
 - GPT Turbo 3.5 (Based on Langchain)
 - Generalized Optimal Sparse Decision Tree
 - LIME (Local Interpretable model-agnostic Explanation)
