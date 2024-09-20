@@ -20,8 +20,6 @@ Agoda-Project
 - slurm job
 - UBAI and OceanAI
 
-## Question Answering, Summarization (~ing)
- - evaluation, validity
 
 ## Hypothesis testing
  - KS test
