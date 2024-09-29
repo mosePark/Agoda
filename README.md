@@ -22,8 +22,8 @@ Agoda-Project
 
 
 ## Hypothesis testing
- - KS test
- - ~
+ - Kolmogorov Smirnov test
+ - Clustering-permutation test
 
 ## Reference
 
