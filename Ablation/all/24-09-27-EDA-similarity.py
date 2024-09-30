@@ -33,6 +33,32 @@ def sampling(df, col, low, high, size):
     
     return sampled_indices
 
+def cal_text_stats(df, col, low, high, text_col):
+    """
+    특정 범위 내에서 텍스트의 평균 길이와 평균 토큰 수를 계산하는 함수.
+    
+    Parameters:
+    - df (DataFrame): 데이터프레임
+    - col (str): 필터링할 기준이 되는 컬럼명 (예: 'F_0_1')
+    - low (float): 필터링할 하한 값
+    - high (float): 필터링할 상한 값
+    - text_col (str): 텍스트 데이터가 들어있는 컬럼명 (예: 'Text', '0.1-gen1')
+    
+    Returns:
+    - avg_length (float): 텍스트의 평균 길이
+    - avg_token_count (float): 텍스트의 평균 토큰 수
+    """
+    # 필터링
+    filtered_data = df[(df[col] > low) & (df[col] < high)][text_col].dropna()
+
+    # 텍스트 평균 길이
+    avg_length = filtered_data.apply(len).mean()
+    
+    # 텍스트 평균 토큰 수
+    avg_token_count = filtered_data.apply(lambda x: len(x.split())).mean()
+
+    return avg_length, avg_token_count
+
 
 #%%
 '''
@@ -257,3 +283,410 @@ df_no_ebd[(df_no_ebd['F_0_1'] > 0) & (df_no_ebd['F_0_1'] < 0.1)]['0.1-gen1'].dro
 
 #%%
 
+'''
+temp = 0.1 , sim_score = (0.2, 0.3),  Ori-Gen1
+'''
+
+df_no_ebd[(df_no_ebd['F_0_1'] > 0.2) & (df_no_ebd['F_0_1'] < 0.3)].to_csv("0.1-0.2~0.3-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_ori, avg_token_count_ori = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] > 0.2) & (df_no_ebd['F_0_1'] < 0.3)], 
+                                                'F_0_1',
+                                                0.2, 0.3,
+                                                'Text')
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] > 0.2) & (df_no_ebd['F_0_1'] < 0.3)], 
+                                                'F_0_1',
+                                                0.2, 0.3,
+                                                '0.1-gen1')
+
+print(f"Ori 텍스트 평균 길이: {avg_length_ori}")
+print(f"Ori 텍스트 평균 토큰 수: {avg_token_count_ori}")
+
+print(f"Gen1 텍스트 평균 길이: {avg_length_gen1}")
+print(f"Gen1 텍스트 평균 토큰 수: {avg_token_count_gen1}")
+#%%
+
+'''
+temp = 0.1 , sim_score = (0.4, 0.6),  Ori-Gen1
+'''
+
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.4) & (df_no_ebd['F_0_1'] < 0.6)]
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.4) & (df_no_ebd['F_0_1'] < 0.6)].to_csv("0.1-0.4~0.6-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_ori, avg_token_count_ori = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.4) & (df_no_ebd['F_0_1'] < 0.6)], 
+                                                'F_0_1',
+                                                0.4, 0.6,
+                                                'Text')
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.4) & (df_no_ebd['F_0_1'] < 0.6)], 
+                                                'F_0_1',
+                                                0.4, 0.6,
+                                                '0.1-gen1')
+
+print(avg_length_ori)
+print(avg_token_count_ori)
+
+print(avg_length_gen1)
+print(avg_token_count_gen1)
+
+
+#%%
+
+'''
+temp = 0.1 , sim_score = (0.6, 0.8),  Ori-Gen1
+'''
+
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.6) & (df_no_ebd['F_0_1'] < 0.8)]
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.6) & (df_no_ebd['F_0_1'] < 0.8)].to_csv("0.1-0.6~0.8-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_ori, avg_token_count_ori = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.6) & (df_no_ebd['F_0_1'] < 0.8)], 
+                                                'F_0_1',
+                                                0.6, 0.8,
+                                                'Text')
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.6) & (df_no_ebd['F_0_1'] < 0.8)], 
+                                                'F_0_1',
+                                                0.6, 0.8,
+                                                '0.1-gen1')
+
+print(avg_length_ori)
+print(avg_token_count_ori)
+
+print(avg_length_gen1)
+print(avg_token_count_gen1)
+
+#%%
+
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.8)]
+df_no_ebd[(df_no_ebd['F_0_1'] >= 0.8)].to_csv("0.1-0.8~-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_ori, avg_token_count_ori = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.8)], 
+                                                'F_0_1',
+                                                0.8, 1.0,
+                                                'Text')
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['F_0_1'] >= 0.8)], 
+                                                'F_0_1',
+                                                0.8, 1.0,
+                                                '0.1-gen1')
+
+print(avg_length_ori)
+print(avg_token_count_ori)
+
+print(avg_length_gen1)
+print(avg_token_count_gen1)
+
+#%%
+'''
+temp = 0.1 , sim_score = (0., 0.3),  Gen1-Gen2
+'''
+
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0) & (df_no_ebd['G_0_1'] < 0.3)]
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0) & (df_no_ebd['G_0_1'] < 0.3)].to_csv("0.1-0~0.3-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0) & (df_no_ebd['G_0_1'] < 0.3)], 
+                                                'G_0_1',
+                                                0, 0.3,
+                                                '0.1-gen1')
+
+avg_length_gen2, avg_token_count_gen2 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0) & (df_no_ebd['G_0_1'] < 0.3)], 
+                                                'G_0_1',
+                                                0, 0.3,
+                                                '0.1-gen2')
+
+
+print(avg_length_gen1)
+print(avg_token_count_gen1)
+
+print(avg_length_gen2)
+print(avg_token_count_gen2)
+
+#%%
+
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.3) & (df_no_ebd['G_0_1'] < 0.6)]
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.3) & (df_no_ebd['G_0_1'] < 0.6)].to_csv("0.3-0~0.6-조회.csv", index=False, encoding='utf-8-sig')
+
+
+avg_length_gen1, avg_token_count_gen1 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.3) & (df_no_ebd['G_0_1'] < 0.6)], 
+                                                'G_0_1',
+                                                0.3, 0.6,
+                                                '0.1-gen1')
+
+avg_length_gen2, avg_token_count_gen2 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.3) & (df_no_ebd['G_0_1'] < 0.6)], 
+                                                'G_0_1',
+                                                0.3, 0.6,
+                                                '0.1-gen2')
+
+
+print(avg_length_gen1)
+print(avg_token_count_gen1)
+
+print(avg_length_gen2)
+print(avg_token_count_gen2)
+
+
+# %%
+
+# 0.6 ~ 0.9 구간으로 작업
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.6) & (df_no_ebd['G_0_1'] < 0.9)]
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.6) & (df_no_ebd['G_0_1'] < 0.9)].to_csv("0.1-0.6~0.9-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_06_09, avg_token_count_gen1_06_09 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.6) & (df_no_ebd['G_0_1'] < 0.9)], 
+                                                'G_0_1',
+                                                0.6, 0.9,
+                                                '0.1-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_06_09, avg_token_count_gen2_06_09 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.6) & (df_no_ebd['G_0_1'] < 0.9)], 
+                                                'G_0_1',
+                                                0.6, 0.9,
+                                                '0.1-gen2')
+
+# 결과 출력
+print(avg_length_gen1_06_09)
+print(avg_token_count_gen1_06_09)
+
+print(avg_length_gen2_06_09)
+print(avg_token_count_gen2_06_09)
+# %%
+
+# 0.9 ~ 1.0 구간으로 작업
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.9) & (df_no_ebd['G_0_1'] <= 1.0)]
+df_no_ebd[(df_no_ebd['G_0_1'] >= 0.9) & (df_no_ebd['G_0_1'] <= 1.0)].to_csv("0.1-0.9~1.0-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_09_10, avg_token_count_gen1_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.9) & (df_no_ebd['G_0_1'] <= 1.0)], 
+                                                'G_0_1',
+                                                0.9, 1.0,
+                                                '0.1-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_09_10, avg_token_count_gen2_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['G_0_1'] >= 0.9) & (df_no_ebd['G_0_1'] <= 1.0)], 
+                                                'G_0_1',
+                                                0.9, 1.0,
+                                                '0.1-gen2')
+
+# 결과 출력
+print(avg_length_gen1_09_10)
+print(avg_token_count_gen1_09_10)
+
+print(avg_length_gen2_09_10)
+print(avg_token_count_gen2_09_10)
+# %%
+'''
+Temp = 0.7 해보기, H에 관해서 하자.
+'''
+
+# 0.0 ~ 0.3 구간으로 작업 (H_0_7 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.0) & (df_no_ebd['H_0_7'] < 0.3)]
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.0) & (df_no_ebd['H_0_7'] < 0.3)].to_csv("0.1-0~0.3-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_00_03, avg_token_count_gen1_00_03 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.0) & (df_no_ebd['H_0_7'] < 0.3)], 
+                                                'H_0_7',
+                                                0.0, 0.3,
+                                                '0.7-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_00_03, avg_token_count_gen2_00_03 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.0) & (df_no_ebd['H_0_7'] < 0.3)], 
+                                                'H_0_7',
+                                                0.0, 0.3,
+                                                '0.7-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_00_03)
+print(avg_token_count_gen1_00_03)
+
+print(avg_length_gen2_00_03)
+print(avg_token_count_gen2_00_03)
+
+#%%
+
+# 0.3 ~ 0.6 구간으로 작업 (H_0_7 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.3) & (df_no_ebd['H_0_7'] < 0.6)]
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.3) & (df_no_ebd['H_0_7'] < 0.6)].to_csv("0.7-0.3~0.6-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_03_06, avg_token_count_gen1_03_06 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.3) & (df_no_ebd['H_0_7'] < 0.6)], 
+                                                'H_0_7',
+                                                0.3, 0.6,
+                                                '0.7-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_03_06, avg_token_count_gen2_03_06 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.3) & (df_no_ebd['H_0_7'] < 0.6)], 
+                                                'H_0_7',
+                                                0.3, 0.6,
+                                                '0.7-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_03_06)
+print(avg_token_count_gen1_03_06)
+
+print(avg_length_gen2_03_06)
+print(avg_token_count_gen2_03_06)
+# %%
+
+# 0.9 ~ 1.0 구간으로 작업 (H_0_7 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.9) & (df_no_ebd['H_0_7'] <= 1.0)]
+df_no_ebd[(df_no_ebd['H_0_7'] >= 0.9) & (df_no_ebd['H_0_7'] <= 1.0)].to_csv("0.7-0.9~1.0-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_09_10, avg_token_count_gen1_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.9) & (df_no_ebd['H_0_7'] <= 1.0)], 
+                                                'H_0_7',
+                                                0.9, 1.0,
+                                                '0.7-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_09_10, avg_token_count_gen2_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_0_7'] >= 0.9) & (df_no_ebd['H_0_7'] <= 1.0)], 
+                                                'H_0_7',
+                                                0.9, 1.0,
+                                                '0.7-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_09_10)
+print(avg_token_count_gen1_09_10)
+
+print(avg_length_gen2_09_10)
+print(avg_token_count_gen2_09_10)
+
+#%%
+
+# 0.0 ~ 0.3 구간으로 작업 (H_1_5 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.0) & (df_no_ebd['H_1_5'] < 0.3)]
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.0) & (df_no_ebd['H_1_5'] < 0.3)].to_csv("1.5-0~0.3-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_00_03, avg_token_count_gen1_00_03 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.0) & (df_no_ebd['H_1_5'] < 0.3)], 
+                                                'H_1_5',
+                                                0.0, 0.3,
+                                                '1.5-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_00_03, avg_token_count_gen2_00_03 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.0) & (df_no_ebd['H_1_5'] < 0.3)], 
+                                                'H_1_5',
+                                                0.0, 0.3,
+                                                '1.5-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_00_03)
+print(avg_token_count_gen1_00_03)
+
+print(avg_length_gen2_00_03)
+print(avg_token_count_gen2_00_03)
+
+
+#%%
+
+# 0.3 ~ 0.6 구간으로 작업 (H_1_5 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.3) & (df_no_ebd['H_1_5'] < 0.6)]
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.3) & (df_no_ebd['H_1_5'] < 0.6)].to_csv("1.5-0.3~0.6-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_03_06, avg_token_count_gen1_03_06 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.3) & (df_no_ebd['H_1_5'] < 0.6)], 
+                                                'H_1_5',
+                                                0.3, 0.6,
+                                                '1.5-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_03_06, avg_token_count_gen2_03_06 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.3) & (df_no_ebd['H_1_5'] < 0.6)], 
+                                                'H_1_5',
+                                                0.3, 0.6,
+                                                '1.5-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_03_06)
+print(avg_token_count_gen1_03_06)
+
+print(avg_length_gen2_03_06)
+print(avg_token_count_gen2_03_06)
+#%%
+
+# 0.6 ~ 1.0 구간으로 작업 (H_1_5 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.6) & (df_no_ebd['H_1_5'] <= 1.0)]
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.6) & (df_no_ebd['H_1_5'] <= 1.0)].to_csv("1.5-0.6~1.0-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_06_10, avg_token_count_gen1_06_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.6) & (df_no_ebd['H_1_5'] <= 1.0)], 
+                                                'H_1_5',
+                                                0.6, 1.0,
+                                                '1.5-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_06_10, avg_token_count_gen2_06_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.6) & (df_no_ebd['H_1_5'] <= 1.0)], 
+                                                'H_1_5',
+                                                0.6, 1.0,
+                                                '1.5-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_06_10)
+print(avg_token_count_gen1_06_10)
+
+print(avg_length_gen2_06_10)
+print(avg_token_count_gen2_06_10)
+
+
+
+
+
+
+
+#%%
+
+# 0.9 ~ 1.0 구간으로 작업 (H_1_5 컬럼 기준)
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.9) & (df_no_ebd['H_1_5'] <= 1.0)]
+df_no_ebd[(df_no_ebd['H_1_5'] >= 0.9) & (df_no_ebd['H_1_5'] <= 1.0)].to_csv("1.5-0.9~1.0-조회.csv", index=False, encoding='utf-8-sig')
+
+# Gen1 통계 계산
+avg_length_gen1_09_10, avg_token_count_gen1_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.9) & (df_no_ebd['H_1_5'] <= 1.0)], 
+                                                'H_1_5',
+                                                0.9, 1.0,
+                                                '1.5-gen1')
+
+# Gen2 통계 계산
+avg_length_gen2_09_10, avg_token_count_gen2_09_10 = cal_text_stats(
+                                                df_no_ebd[(df_no_ebd['H_1_5'] >= 0.9) & (df_no_ebd['H_1_5'] <= 1.0)], 
+                                                'H_1_5',
+                                                0.9, 1.0,
+                                                '1.5-gen1-1')
+
+# 결과 출력
+print(avg_length_gen1_09_10)
+print(avg_token_count_gen1_09_10)
+
+print(avg_length_gen2_09_10)
+print(avg_token_count_gen2_09_10)
