@@ -136,3 +136,50 @@ df[df['F_0_7'] <= df['H_0_7']]
 df[df['F_0_1'] > df['H_0_1']].to_csv('t 0.1 gen1-1에서 문맥 더 잃는지.csv', index=False, encoding='utf-8-sig')
 
 df[df['F_1_5'] > df['H_1_5']].to_csv('t 1.5 gen1-1에서 문맥 더 잃는지.csv', index=False, encoding='utf-8-sig')
+
+#%%
+
+# 1. 데이터 필터링
+filtered_df = df[df['F_0_7'] <= df['H_0_7']].copy()
+
+# 2. 두 유사도 값의 차이 계산
+filtered_df['Difference'] = filtered_df['H_0_7'] - filtered_df['F_0_7']
+
+# 3. 히스토그램 시각화
+max_difference = filtered_df['Difference'].max()
+bins = np.arange(0, max_difference + 0.1, 0.1)
+
+plt.figure(figsize=(10, 6))
+plt.hist(filtered_df['Difference'], bins=bins, edgecolor='black', color='skyblue')
+plt.title('두 유사도 값의 차이 빈도 분포', fontsize=15)
+plt.xlabel('유사도 차이 (H_0_7 - F_0_7)', fontsize=12)
+plt.ylabel('빈도수', fontsize=12)
+plt.xticks(bins, rotation=45)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.show()
+# %%
+
+# 차이 계산 (절대값 제거)
+df['Difference'] = df['F_0_7'] - df['H_0_7']
+
+# 히스토그램 시각화
+min_difference = df['Difference'].min()
+max_difference = df['Difference'].max()
+
+# bin 간격을 0.1로 설정하고, 범위에 맞게 np.arange를 수정
+bins = np.arange(min_difference - 0.1, max_difference + 0.1, 0.1)
+
+plt.figure(figsize=(10, 6))
+plt.hist(df['Difference'], bins=bins, edgecolor='black', color='skyblue')
+plt.title('Diff of H, F', fontsize=15)
+plt.xlabel('F_0_7 - H_0_7', fontsize=12)
+plt.ylabel('Counts', fontsize=12)
+plt.xticks(bins, rotation=45)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# 0 포인트 라인 그리기
+plt.axvline(x=0, color='red', linestyle='--', linewidth=2)
+
+plt.tight_layout()
+plt.show()
