@@ -1,7 +1,84 @@
+'
+< Setting 1 >
+temperature parameter : 0.7
+The # of sampling : 2,000
+K of kmeans : 4
+itrN : 2,000
+The # of nbds points : 5
+
+mean((g1g2$ri2+g1g2$ri1)*.5 < g1g2$rf) # 0.121
+mean((org1$ri2+org1$ri1)*.5 < org1$rf) # 0
+mean((org2$ri2+org2$ri1)*.5 < org2$rf) # 0
+mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.0425
+mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0.0025
+
+< Setting 2 >
+temperature parameter : 0.7
+The # of sampling : 2,000
+K of kmeans : 4
+itrN : 2,000
+The # of nbds points : 50
+
+mean((g1g2$ri2+g1g2$ri1)*.5 < g1g2$rf) # 0.047
+mean((org1$ri2+org1$ri1)*.5 < org1$rf) # 0
+mean((org2$ri2+org2$ri1)*.5 < org2$rf) # 0
+mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.0495
+mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0.005
+
+< Setting 3 >
+temperature parameter : 0.7
+The # of sampling : 2,000
+K of kmeans : 4
+itrN : 2,000
+The # of nbds points : 500
+
+mean((g1g2$ri2+g1g2$ri1)*.5 < g1g2$rf) # 0.057
+mean((org1$ri2+org1$ri1)*.5 < org1$rf) # 0.2645
+mean((org2$ri2+org2$ri1)*.5 < org2$rf) # 0.2395
+mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.2645
+mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0.164
+
+<setting 4>
+temperature parameter : 0.7
+The # of sampling : 5,000
+Reduction dim : 15 (variance 최대 보존)
+K of kmeans : 4
+itrN : 1,000
+The # of nbds points : 50
+
+mean((g1g2$ri2+g1g2$ri1)*.5 < g1g2$rf) # 0.466
+mean((org1$ri2+org1$ri1)*.5 < org1$rf) # 0
+mean((org2$ri2+org2$ri1)*.5 < org2$rf) # 0
+mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.047
+mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0
+
+# <setting 5>
+# temperature parameter : 0.7
+# The # of sampling : 5,000
+# Reduction dim : 15 (variance 최대 보존)
+# K of kmeans : 5
+# itrN : 1,000
+# The # of nbds points : 5
+
+mean((g1g2$ri2+g1g2$ri1)*.5 < g1g2$rf) # 0.018
+mean((org1$ri2+org1$ri1)*.5 < org1$rf) # 0.006
+mean((org2$ri2+org2$ri1)*.5 < org2$rf) # 0.002
+mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.143
+mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0.011
+
+# <setting 6>
+# temperature parameter : 0.7
+# The # of sampling : 5,000
+# Reduction dim : 15 (variance 최대 보존)
+# K of kmeans : 5
+# itrN : 1,000
+# The # of nbds points : 
+
+
+'
 library(ggplot2)
 
 # Define function
-################################################################################
 make_matrix = function(xvec){
   return_mat = matrix(NA, nrow=length(xvec), ncol=1536)
   for (i in 1:length(xvec)){
@@ -12,7 +89,9 @@ make_matrix = function(xvec){
   }
   return(return_mat)
 }
-################################################################################
+
+
+
 rand.index <- function(true_labels, predicted_labels) {
   if (length(true_labels) != length(predicted_labels)) {
     stop("The length of the two label vectors must be the same.")
@@ -28,7 +107,9 @@ rand.index <- function(true_labels, predicted_labels) {
   rand_index <- (a + d) / (a + b + c + d)
   return(rand_index)
 }
-################################################################################
+
+
+
 try = function(dat1, dat2, itrN = 500, K=4, k_near=5){
   dat1_cl = kmeans(dat1, K)$cluster
   dat2_cl = kmeans(dat2, K)$cluster
@@ -95,7 +176,9 @@ try = function(dat1, dat2, itrN = 500, K=4, k_near=5){
   
   return(list(ri1= rand1, ri2=rand2, rf= rand.index(dat2_cl, dat1_cl)))
 }
-################################################################################
+
+
+
 plot_clustered_data <- function(df, cluster, title, file_name) {
   df <- data.frame(X = df[,1], Y = df[,2], Cluster = as.factor(cluster))  # Create dataframe
   
@@ -111,7 +194,6 @@ plot_clustered_data <- function(df, cluster, title, file_name) {
   # Save the plot with high DPI (1000) using ggsave
   ggsave(file_name, plot = p, dpi = 1000, width = 8, height = 6)
 }
-################################################################################
 
 
 plot_pvalue_distribution_ggplot <- function(ri1, ri2, rf, title) {
@@ -139,14 +221,11 @@ plot_pvalue_distribution_ggplot <- function(ri1, ri2, rf, title) {
 
 
 
-'
-코드 시작
-'
-
-
 set.seed(241003)
 
 setwd("D:/mose/data/ablation2")
+# setwd("E:/mose/data/ablation2")
+
 getwd()
 
 df_4 <- read.csv("df_4.csv", header=T)
@@ -154,7 +233,9 @@ df_5 <- read.csv("df_5.csv", header=T)
 df_6 <- read.csv("df_6.csv", header=T)
 
 
-sample_ind = sample(1:nrow(df_4), size=5000)
+sz = 5000 ###
+
+sample_ind = sample(1:nrow(df_4), size=sz)
 
 or_emb = make_matrix(df_6$ori.ebd[sample_ind])
 gen1_emb = make_matrix(df_4$X0.7.gen1.ebd[sample_ind])
@@ -178,7 +259,8 @@ red_gen2 = gen2_emb%*%SVD_gen2$v[,1:2]
 red_gen1_1 = gen1_1_emb%*%SVD_gen1_1$v[,1:2]
 
 ## perform k_means and compare the results across datasets.
-K = 5
+k = 5 ###
+
 or_clust = kmeans(red_or, K)
 gen1_clust = kmeans(red_gen1, K)
 gen2_clust = kmeans(red_gen2, K)
@@ -189,13 +271,13 @@ gen1_1_clust = kmeans(red_gen1_1, K)
 # plot(red_gen2[,1], red_gen2[,2], col=gen1_clust$cluster)
 # plot(red_gen1_1[,1], red_gen1_1[,2], col=gen1_clust$cluster)
 
+setwd("C:/Users/mose/Desktop/simulation")
+# setwd("C:/Users/82105/OneDrive/바탕 화면/simulation")
+
 plot_clustered_data(red_or, gen1_clust$cluster, "red_or with gen1 clusters", "red_or_gen1_clusters.png")
 plot_clustered_data(red_gen1, gen1_clust$cluster, "red_gen1 with gen1 clusters", "red_gen1_gen1_clusters.png")
 plot_clustered_data(red_gen2, gen1_clust$cluster, "red_gen2 with gen1 clusters", "red_gen2_gen1_clusters.png")
 plot_clustered_data(red_gen1_1, gen1_clust$cluster, "red_gen1_1 with gen1 clusters", "red_gen1_1_gen1_clusters.png")
-
-
-
 
 
 rand.index(gen1_clust$cluster, gen2_clust$cluster)
@@ -220,11 +302,16 @@ dat3 = red_gen2
 dat4 = red_gen1_1
 
 # testing
-g1g2 = try(red_gen1, red_gen2, itrN = 1000, K=5, k_near=5)
-org1 = try(red_gen1, red_or, itrN = 1000, K=5, k_near=5)
-org2 = try(red_gen2, red_or, itrN = 1000, K=5, k_near=5)
-g1g11 = try(red_gen1, red_gen1_1, itrN = 1000, K=5, k_near=5)
-g2g11 = try(red_gen2, red_gen1_1, itrN = 1000, K=5, k_near=5)
+
+###
+iter = 1000 ###
+k_nears = 5 ###
+
+g1g2 = try(red_gen1, red_gen2, itrN = iter, K=k, k_near=k_nears)
+org1 = try(red_gen1, red_or, itrN = iter, K=k, k_near=k_nears)
+org2 = try(red_gen2, red_or, itrN = iter, K=k, k_near=k_nears)
+g1g11 = try(red_gen1, red_gen1_1, itrN = iter, K=k, k_near=k_nears)
+g2g11 = try(red_gen2, red_gen1_1, itrN = iter, K=k, k_near=k_nears)
 
 
 # my p-value
@@ -235,13 +322,9 @@ mean((g1g11$ri2+g1g11$ri1)*.5 < g1g11$rf) # 0.143
 mean((g2g11$ri2+g2g11$ri1)*.5 < g2g11$rf) # 0.011
 
 
-
-setwd("C:/Users/mose/Desktop/simulation")
-
 # p-value dist
 # g1g2
 plot_pvalue_distribution_ggplot(g1g2$ri1, g1g2$ri2, g1g2$rf, "g1g2")
-
 # org1
 plot_pvalue_distribution_ggplot(org1$ri1, org1$ri2, org1$rf, "org1")
 # org2
@@ -251,5 +334,3 @@ plot_pvalue_distribution_ggplot(g1g11$ri1, g1g11$ri2, g1g11$rf, "g1g11")
 # g2g11
 plot_pvalue_distribution_ggplot(g2g11$ri1, g2g11$ri2, g2g11$rf, "g2g11")
 
-
-setwd("C:/Users/mose/Desktop/simulation")
