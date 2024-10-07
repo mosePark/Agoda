@@ -1,3 +1,8 @@
+'
+2024-10-07
+data1에 쓸 시뮬레이션 데이터 생성
+'
+
 # Load libraries
 library(MASS)
 library(ggplot2)
