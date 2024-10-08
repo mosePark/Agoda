@@ -226,9 +226,12 @@ for (i in 1:N) {
 }
 
 # Plot the distribution of the p-value results
-hist_plot <- hist(distribution_results, breaks = 20, col = "skyblue", 
-                  main = "Distribution of p-value",
-                  xlab = "Mean value", ylab = "Frequency")
+hist_plot <- ggplot(data.frame(distribution_results), aes(x = distribution_results)) +
+  geom_histogram(bins = 20, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of p-value",
+       x = "Mean value",
+       y = "Frequency") +
+  theme_minimal(base_size = 15)
 
 # Save the histogram plot with high DPI
 ggsave(file.path(save_path, "p_value_distribution_plot.png"), plot = hist_plot, width = 8, height = 6, dpi = 1000)
