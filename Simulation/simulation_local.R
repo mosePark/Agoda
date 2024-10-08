@@ -1,10 +1,9 @@
-# 시뮬레이션 결과를 저장할 폴더 이름 설정
+# folder
 
 base_path = "C:/Users/simulation/results"
 simulation_id <- format(Sys.time(), "%H시 %M분 %S초") # 날짜 기반 폴더 이름 생성
 save_path <- file.path(base_path, simulation_id)
 
-# 폴더가 없으면 생성
 if (!dir.exists(save_path)) {
   dir.create(save_path, recursive = TRUE)
 }
