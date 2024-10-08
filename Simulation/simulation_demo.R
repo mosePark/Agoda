@@ -207,4 +207,4 @@ for (i in 1:100) {
 # Plot the distribution of the results
 hist(distribution_results, breaks = 20, col = "skyblue", 
      main = "Distribution of p-value",
-     xlab = "Mean value", ylab = "Frequency")
+     xlab = "Mean p-value", ylab = "Frequency")
