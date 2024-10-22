@@ -24,7 +24,10 @@ Agoda-Project
 ## Hypothesis testing
  - Kolmogorov Smirnov test
  - Clustering-permutation test
-  - Clustering (kmeans, hclust)
+  - kmeans, hclust
+ - sign test
+ - Wilcoxon Rank Sum and Signed Rank Tests
+   
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
