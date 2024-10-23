@@ -15,18 +15,18 @@ DEFAULT_NAME=agoda
 # R argparse source for experiments
 
 sz=(
-"--sz 3000"
-"--sz 5000"
-"--sz 8000"
-"--sz 32083"
+"--sz 3000 --realization 20"
+"--sz 5000 --realization 12"
+"--sz 8000 --realization 8"
+"--sz 32083 --realization 5"
 )
 
-realization=(
-"--realization 20"
-"--realization 12"
-"--realization 8"
-"--realization 5"
-)
+# realization=(
+# "--realization 20"
+# "--realization 12"
+# "--realization 8"
+# "--realization 5"
+# )
 
 
 k=(
@@ -43,13 +43,13 @@ dim=(
 "--dim 15"
 )
 
+
 for i1 in ${!sz[*]}; do
     # Pair sz and realization
-    sz_value=${sz[$i1]}
-    realization_value=${realization[$i1]}
     for i2 in ${!k[*]}; do
         for i3 in ${!clrepN[*]}; do
-            sbatch --job-name=$DEFAULT_NAME $RUN_SRC $ENV $EXECUTION_FILE $sz_value $realization_value ${k[$i2]} ${clrepN[$i3]} ${dim[0]}
+            sbatch --job-name=$DEFAULT_NAME $RUN_SRC $ENV $EXECUTION_FILE ${sz[$i1]} ${k[$i2]} ${clrepN[$i3]} ${dim[0]}
+            # echo --job-name=$DEFAULT_NAME $RUN_SRC $ENV $EXECUTION_FILE ${sz[$i1]} ${k[$i2]} ${clrepN[$i3]} --dim 15
             sleep 1
         done
     done
