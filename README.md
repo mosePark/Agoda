@@ -22,12 +22,12 @@ Agoda-Project
 - UBAI and OceanAI
 
 
-## Hypothesis testing
+## Hypothesis testing (nonparametically approach)
  - Kolmogorov Smirnov test (preliminary)
  - Clustering-permutation test
   - kmeans, hclust
  - sign test
- - Wilcoxon Rank Sum and Signed Rank Test
+  - Wilcoxon Rank Sum and Signed Rank Test
    
 ## Reference
 
