@@ -6,7 +6,7 @@ Agoda-Project
 
 ## Embeddings
 - Based on sklearn : count, tf-idf
-- model : BERT, GPT-2 and etc. (ing)
+- model : text-embedding-3-small (GPT API)
 
 ## Trial and Error
 - GPT Turbo 3.5 (Based on Langchain)
