@@ -112,3 +112,41 @@ for scale in results:
     print("Cosine Similarities:", results[scale]["cosine"][:5])
     print("KL Divergences:", results[scale]["kl"][:5])
     print("Wasserstein Distances:", results[scale]["wasserstein"][:5])
+
+
+import json
+
+# JSON으로 저장
+with open("rigor결과.json", "w", encoding="utf-8") as f:
+    json.dump(results, f, indent=4, ensure_ascii=False)
+
+# JSON 파일 읽기
+with open("results.json", "r", encoding="utf-8") as f:
+    loaded_results = json.load(f)
+
+rigor = loaded_results
+
+#%%
+
+rigor['0.1']['cosine']
+
+#%%
+# 결과를 저장할 리스트
+merged_data = []
+
+# 데이터 정리
+for metric, scales in rigor.items():
+    for scale, data_list in scales.items():
+        # 각 데이터 리스트를 데이터프레임으로 변환
+        temp_df = pd.DataFrame(data_list)
+        # scale과 metric 열 추가
+        temp_df["scale"] = scale
+        temp_df["metric"] = metric
+        # 리스트에 추가
+        merged_data.append(temp_df)
+
+# 하나의 데이터프레임으로 병합
+final_df = pd.concat(merged_data, ignore_index=True)
+
+final_df.to_csv('rigor.csv', index=False, encoding='utf-8-sig')
+
