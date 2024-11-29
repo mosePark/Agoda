@@ -28,7 +28,7 @@ Agoda-Project
   - kmeans, hclust
  - sign test
   - Wilcoxon Rank Sum and Signed Rank Test
-   
+ - Independence test
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
