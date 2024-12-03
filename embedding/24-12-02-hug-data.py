@@ -57,3 +57,36 @@ sdf.iloc[1, :]['gen2']
 # sdf_with_idx = sdf.reset_index().rename(columns={'index': 'idx'})
 # sdf_with_idx.to_csv('hug.csv', encoding='utf-8-sig', index=False)
 # sdf_with_idx.to_excel('hug.xlsx', index=False)
+
+#%%
+
+ori = pd.read_csv("hug-ori.csv", encoding='utf-8-sig')
+g1 = pd.read_csv("hug-g1.csv", encoding='utf-8-sig')
+g2 = pd.read_csv("hug-g2.csv", encoding='utf-8-sig')
+
+ori.isnull().sum()
+g1.isnull().sum()
+g2.isnull().sum()
+
+df = ori
+
+df['0.7-gen1-ebd'] = g1['0.7-gen1-ebd']
+df['0.7-gen2-ebd'] = g2['0.7-gen2-ebd']
+
+# df.to_csv("hug-ebd.csv", encoding='utf-8-sig', index=False)
+
+df.isnull().sum()
+
+df = pd.read_csv("hug-ebd.csv", encoding='utf-8-sig')
+
+df.columns
+
+df['source'].value_counts()
+
+quora = df[df['source'] == 'quora'] # 24714
+squad2 = df[df['source'] == 'squad_2'] # 9198
+cnn = df[df['source'] == 'cnn_news'] # 8008
+
+quora.to_csv("quora-ebd.csv", encoding='utf-8-sig', index=False)
+squad2.to_csv("squad2-ebd.csv", encoding='utf-8-sig', index=False)
+cnn.to_csv("cnn-ebd.csv", encoding='utf-8-sig', index=False)
