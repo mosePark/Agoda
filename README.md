@@ -24,11 +24,12 @@ Agoda-Project
 
 ## Hypothesis testing (nonparametically approach)
  - Kolmogorov Smirnov test (preliminary)
- - Clustering-permutation test
-  - kmeans, hclust
+ - Clustering-based nonparametric test
+  - kmeans
  - sign test
-  - Wilcoxon Rank Sum and Signed Rank Test
+  - Wilcoxon Rank Sum Test
  - Independence test
+  - ing..
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
