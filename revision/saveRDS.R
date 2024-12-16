@@ -42,6 +42,7 @@ df_14 <- read.csv("C:/UBAI/hug-ebd/1.5-hug-gen2-ebd.csv", header=T)
 
 # ori
 ori_emb = make_matrix(df$ori.ebd)
+SVD_ori = svd(ori_emb)
 
 # 0.1
 gen1_emb_0_1 = make_matrix(df_1$X0.1.gen1.ebd)
@@ -85,3 +86,45 @@ gen2_emb_1_5 = make_matrix(df_14$X1.5.gen2.ebd)
 
 SVD_gen1_1_5 = svd(gen1_emb_1_5)
 SVD_gen2_1_5 = svd(gen2_emb_1_5)
+
+
+
+
+# save
+
+saveRDS(SVD_ori, file = "C:/UBAI/hug-ebd/SVD_ori.rds")
+
+saveRDS(SVD_gen1_0_1, file = "C:/UBAI/hug-ebd/SVD_gen1_0_1.rds")
+saveRDS(SVD_gen2_0_1, file = "C:/UBAI/hug-ebd/SVD_gen2_0_1.rds")
+saveRDS(SVD_gen1_1_0_1, file = "C:/UBAI/hug-ebd/SVD_gen1_1_0_1.rds")
+
+saveRDS(SVD_gen1_0_4, file = "C:/UBAI/hug-ebd/SVD_gen1_0_4.rds")
+saveRDS(SVD_gen2_0_4, file = "C:/UBAI/hug-ebd/SVD_gen2_0_4.rds")
+saveRDS(SVD_gen1_1_0_4, file = "C:/UBAI/hug-ebd/SVD_gen1_1_0_4.rds")
+
+saveRDS(SVD_gen1_0_7, file = "C:/UBAI/hug-ebd/SVD_gen1_0_7.rds")
+saveRDS(SVD_gen2_0_7, file = "C:/UBAI/hug-ebd/SVD_gen2_0_7.rds")
+saveRDS(SVD_gen1_1_0_7, file = "C:/UBAI/hug-ebd/SVD_gen1_1_0_7.rds")
+
+saveRDS(SVD_gen1_1_0, file = "C:/UBAI/hug-ebd/SVD_gen1_1_0.rds")
+saveRDS(SVD_gen2_1_0, file = "C:/UBAI/hug-ebd/SVD_gen2_1_0.rds")
+saveRDS(SVD_gen1_1_1_0, file = "C:/UBAI/hug-ebd/SVD_gen1_1_1_0.rds")
+
+# Loading SVD data
+SVD_ori <- readRDS("C:/UBAI/hug-ebd/SVD_ori.rds")
+
+SVD_gen1_0_1 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_0_1.rds")
+SVD_gen2_0_1 <- readRDS("C:/UBAI/hug-ebd/SVD_gen2_0_1.rds")
+SVD_gen1_1_0_1 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_1_0_1.rds")
+
+SVD_gen1_0_4 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_0_4.rds")
+SVD_gen2_0_4 <- readRDS("C:/UBAI/hug-ebd/SVD_gen2_0_4.rds")
+SVD_gen1_1_0_4 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_1_0_4.rds")
+
+SVD_gen1_0_7 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_0_7.rds")
+SVD_gen2_0_7 <- readRDS("C:/UBAI/hug-ebd/SVD_gen2_0_7.rds")
+SVD_gen1_1_0_7 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_1_0_7.rds")
+
+SVD_gen1_1_0 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_1_0.rds")
+SVD_gen2_1_0 <- readRDS("C:/UBAI/hug-ebd/SVD_gen2_1_0.rds")
+SVD_gen1_1_1_0 <- readRDS("C:/UBAI/hug-ebd/SVD_gen1_1_1_0.rds")
