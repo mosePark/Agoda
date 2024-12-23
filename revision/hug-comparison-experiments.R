@@ -125,27 +125,172 @@ red_gen1_1_1_5 <- SVD_gen1_1_1_5$u %*% rbind(diag(SVD_gen1_1_1_5$d[1:dim]), matr
 temp 0.1
 '
 
+## eqdist ################################
 # quora
 comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-
 comparison_tests(source='quora', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-
 comparison_tests(source='quora', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
-
 comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
-
 comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
 
-# squad_2 
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
 
 # cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+
+## ball ################################
+# quora
+comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+
+# cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='ball', seed=7)
+
+'
+temp 0.4
+'
+
+## eqdist ################################
+# quora
+comparison_tests(source='quora', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='quora', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='squad_2', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+# cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='cnn_news', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='eqdist', seed=7)
+
+## ball ################################
+# quora
+comparison_tests(source='quora', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='quora', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
+
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='squad_2', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
+
+# cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_4, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='cnn_news', X=red_gen1_0_4, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
+
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_4, kfds=5, method='ball', seed=7)
 
 
 
 
+'
+temp 0.7
+'
 
+## eqdist ################################
+# quora
+comparison_tests(source='quora', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='quora', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
 
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
 
+# cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='eqdist', seed=7)
+
+## ball ################################
+# quora
+comparison_tests(source='quora', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
+
+# squad_2
+comparison_tests(source='squad_2', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
+
+# cnn_news
+comparison_tests(source='cnn_news', X=red_gen1_0_7, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_gen1_0_7, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
+comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_7, kfds=5, method='ball', seed=7)
 
 
 
