@@ -98,32 +98,32 @@ reduction
 dim = 2
 
 # Original Data Reduction
-red_or <- SVD_ori$u %*% rbind(diag(SVD_ori$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_or <- SVD_ori$u %*% rbind(diag(SVD_ori$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # 0.1
-red_gen1_0_1 <- SVD_gen1_0_1$u %*% rbind(diag(SVD_gen1_0_1$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen2_0_1 <- SVD_gen2_0_1$u %*% rbind(diag(SVD_gen2_0_1$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen1_1_0_1 <- SVD_gen1_1_0_1$u %*% rbind(diag(SVD_gen1_1_0_1$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_gen1_0_1 <- SVD_gen1_0_1$u %*% rbind(diag(SVD_gen1_0_1$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen2_0_1 <- SVD_gen2_0_1$u %*% rbind(diag(SVD_gen2_0_1$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen1_1_0_1 <- SVD_gen1_1_0_1$u %*% rbind(diag(SVD_gen1_1_0_1$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # 0.4
-red_gen1_0_4 <- SVD_gen1_0_4$u %*% rbind(diag(SVD_gen1_0_4$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen2_0_4 <- SVD_gen2_0_4$u %*% rbind(diag(SVD_gen2_0_4$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen1_1_0_4 <- SVD_gen1_1_0_4$u %*% rbind(diag(SVD_gen1_1_0_4$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_gen1_0_4 <- SVD_gen1_0_4$u %*% rbind(diag(SVD_gen1_0_4$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen2_0_4 <- SVD_gen2_0_4$u %*% rbind(diag(SVD_gen2_0_4$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen1_1_0_4 <- SVD_gen1_1_0_4$u %*% rbind(diag(SVD_gen1_1_0_4$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # 0.7
-red_gen1_0_7 <- SVD_gen1_0_7$u %*% rbind(diag(SVD_gen1_0_7$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen2_0_7 <- SVD_gen2_0_7$u %*% rbind(diag(SVD_gen2_0_7$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen1_1_0_7 <- SVD_gen1_1_0_7$u %*% rbind(diag(SVD_gen1_1_0_7$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_gen1_0_7 <- SVD_gen1_0_7$u %*% rbind(diag(SVD_gen1_0_7$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen2_0_7 <- SVD_gen2_0_7$u %*% rbind(diag(SVD_gen2_0_7$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen1_1_0_7 <- SVD_gen1_1_0_7$u %*% rbind(diag(SVD_gen1_1_0_7$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # 1.0
-red_gen1_1_0 <- SVD_gen1_1_0$u %*% rbind(diag(SVD_gen1_1_0$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen2_1_0 <- SVD_gen2_1_0$u %*% rbind(diag(SVD_gen2_1_0$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen1_1_1_0 <- SVD_gen1_1_1_0$u %*% rbind(diag(SVD_gen1_1_1_0$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_gen1_1_0 <- SVD_gen1_1_0$u %*% rbind(diag(SVD_gen1_1_0$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen2_1_0 <- SVD_gen2_1_0$u %*% rbind(diag(SVD_gen2_1_0$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen1_1_1_0 <- SVD_gen1_1_1_0$u %*% rbind(diag(SVD_gen1_1_1_0$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # 1.5
-red_gen1_1_5 <- SVD_gen1_1_5$u %*% rbind(diag(SVD_gen1_1_5$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen2_1_5 <- SVD_gen2_1_5$u %*% rbind(diag(SVD_gen2_1_5$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
-red_gen1_1_1_5 <- SVD_gen1_1_1_5$u %*% rbind(diag(SVD_gen1_1_1_5$d[1:dim]), matrix(0, nrow=1536-2, ncol=2))
+red_gen1_1_5 <- SVD_gen1_1_5$u %*% rbind(diag(SVD_gen1_1_5$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen2_1_5 <- SVD_gen2_1_5$u %*% rbind(diag(SVD_gen2_1_5$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
+red_gen1_1_1_5 <- SVD_gen1_1_1_5$u %*% rbind(diag(SVD_gen1_1_1_5$d[1:dim]), matrix(0, nrow=1536-dim, ncol=dim))
 
 # cnn_news, quora, squad_2 
 
@@ -133,25 +133,25 @@ temp 0.1
 
 ## eqdist ################################
 # quora
-comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='quora', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='quora', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+za=comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zb=comparison_tests(source='quora', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zc=comparison_tests(source='quora', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
+zd=comparison_tests(source='quora', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+ze=comparison_tests(source='quora', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
 
 # squad_2
-comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+zf=comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zg=comparison_tests(source='squad_2', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zh=comparison_tests(source='squad_2', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
+zi=comparison_tests(source='squad_2', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+zj=comparison_tests(source='squad_2', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
 
 # cnn_news
-comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
-comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+zk=comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zl=comparison_tests(source='cnn_news', X=red_or, Y=red_gen2_0_1, kfds=5, method='eqdist', seed=7)
+zm=comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_0_1, kfds=5, method='eqdist', seed=7)
+zn=comparison_tests(source='cnn_news', X=red_gen1_0_1, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
+z0=comparison_tests(source='cnn_news', X=red_or, Y=red_gen1_1_0_1, kfds=5, method='eqdist', seed=7)
 
 ## ball ################################
 # quora
