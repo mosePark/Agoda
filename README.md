@@ -42,5 +42,5 @@ Agoda-Project
   - [Anchor Link](https://proceedings.mlr.press/v130/mardaoui21a.html)
 - evaluation LLM
   - [eval LLM Link](https://arxiv.org/abs/2406.09714)
-- Genmini, Llama 예
+- Genmini, Llama
   - 추후 연구
