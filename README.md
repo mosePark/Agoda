@@ -29,7 +29,8 @@ Agoda-Project
  - sign test
   - Wilcoxon Rank Sum Test
  - Independence test
-  - ing..
+ - Hotelling, Ball, eqdist, Nploc test
+ - 
 ## Reference
 
 - Generalized Optimal Sparse Decision Tree
