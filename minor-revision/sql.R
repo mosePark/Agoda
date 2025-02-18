@@ -76,7 +76,7 @@ extract <- function(result, dim) {
     or_gen1_1   = res[rownames(res) %in% rows, "or_gen1_1"]
   )
 }
-
+rows = c("t.test_2",  "t.test_3",  "t.test_4", "t.test_5")
 #########################
 # dim = 2 table 채우기 [[1]]
 #########################
