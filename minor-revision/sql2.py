@@ -68,3 +68,51 @@ squad_2_1_5 <- result_list
 
 ago_0_1$hotelling
 ago_0_1$np
+
+create_result_table <- function(red_dim = 2, col_name = "or_gen1_1") {
+  # 관심있는 rho 값들 (파일명에 포함된 부분)
+  rho_values <- c("0_1", "0_4", "0_7", "1_0", "1_5")
+  
+  # 각 데이터셋에 대한 객체 이름 생성 함수
+  datasets <- list(
+    Review = function(rho) get(paste0("ago_", rho)),
+    CNN    = function(rho) get(paste0("cnn_news_", rho)),
+    Quora  = function(rho) get(paste0("quora_", rho)),
+    SQUAD2 = function(rho) get(paste0("squad_2_", rho))
+  )
+  
+  # 결과를 저장할 빈 데이터프레임 (열: hotelling, np)
+  res <- data.frame(hotelling = numeric(), np = numeric(), stringsAsFactors = FALSE)
+  row_names <- c()
+  
+  # 내부 함수: 지정한 객체에서 red_dim 행과 선택한 칼럼의 값을 추출
+  get_val <- function(obj, red_dim, col_name) {
+    # 테이블의 행 이름은 문자형("2", "10", "20" 등)로 되어 있다고 가정
+    val_hot <- obj$hotelling[as.character(red_dim), col_name]
+    val_np  <- obj$np[as.character(red_dim), col_name]
+    return(c(hotelling = val_hot, np = val_np))
+  }
+  
+  # 각 rho 값과 데이터셋에 대해 값 추출
+  for(rho in rho_values) {
+    for(ds in names(datasets)) {
+      obj <- datasets[[ds]](rho)
+      vals <- get_val(obj, red_dim, col_name)
+      res <- rbind(res, vals)
+      row_names <- c(row_names, paste(rho, ds))
+    }
+  }
+  
+  rownames(res) <- row_names
+  colnames(res) <- c('hotelling', 'np')
+  return(res)
+}
+
+
+# "or_gen1_1", "or_gen2", "gen1_gen1_1", "gen1_gen2"
+
+dim = 20
+colnms = "gen1_gen1_1"
+
+result_table <- create_result_table(red_dim = dim, col_name = colnms)
+print(result_table)
