@@ -1,6 +1,6 @@
-# Agoda
-Agoda-Project
-[Paper Link](https://arxiv.org/abs/2501.01273)
+# Research
+- Does a Large Language Model Really Speak in Human-Like Language?
+- [Paper Link](https://arxiv.org/abs/2501.01273)
 
 ## Collecting Data
 - Agoda.com data crawling
