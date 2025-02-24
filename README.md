@@ -1,5 +1,6 @@
 # Agoda
 Agoda-Project
+[Paper Link](https://arxiv.org/abs/2501.01273)
 
 ## Collecting Data
 - Agoda.com data crawling
