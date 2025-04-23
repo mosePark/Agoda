@@ -1,7 +1,7 @@
 ## Does a Large Language Model Really Speak in Human-Like Language?
 
 [[arXiv link](https://arxiv.org/abs/2501.01273)]  
-[[Published Version at STAT](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
+[[Published Version](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
 
 ---
 
@@ -29,6 +29,19 @@ The analysis is based on textual data embedding and structural comparisons of wr
 - Measured the **distance between these groupings** to assess whether LLMs are simply repeating patterns or truly mimicking human variation.
 
 ---
+
+## 💡 Core Idea
+
+This study is built around two central questions to probe the human-likeness of LLM-generated text:
+
+1. **Structural Symmetry**: If LLM-generated text truly mirrors human language, then the difference between human and once-paraphrased text should be similar to that between once- and twice-paraphrased text. This assumption relies on a paired data structure where each sample has aligned paraphrases.
+
+2. **Effect of Text Variability**: LLMs allow control over output diversity through temperature settings. We explore how varying this parameter affects the structural closeness between human and machine-generated texts.
+
+To address these questions, the authors introduce a statistical hypothesis testing framework that compares latent community structures in embedding space. The key idea is to assess whether paraphrased texts retain the same grouping patterns as their human-written counterparts when viewed through a shared reference space.
+
+---
+
 
 ## 🧠 Key Insights
 
