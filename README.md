@@ -1,6 +1,6 @@
-# Does a Large Language Model Really Speak in Human-Like Language?
+## Does a Large Language Model Really Speak in Human-Like Language?
 
-[[arXiv link](https://arxiv.org/abs/2501.01273)]  
+[[Arxiv Version](https://arxiv.org/abs/2501.01273)]  
 [[Published Version](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
 
 ---
