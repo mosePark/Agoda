@@ -1,7 +1,7 @@
-# Does a Large Language Model Really Speak in Human-Like Language?
+## Does a Large Language Model Really Speak in Human-Like Language?
 
 [[arXiv link](https://arxiv.org/abs/2501.01273)]  
-[[Published Version at Wiley](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
+[[Published Version at STAT](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
 
 ---
 
@@ -63,4 +63,3 @@ The analysis is based on textual data embedding and structural comparisons of wr
 
 ## 📄 License
 
-This work is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
