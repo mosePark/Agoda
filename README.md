@@ -1,4 +1,4 @@
-## Does a Large Language Model Really Speak in Human-Like Language?
+# Does a Large Language Model Really Speak in Human-Like Language?
 
 [[arXiv link](https://arxiv.org/abs/2501.01273)]  
 [[Published Version](https://onlinelibrary.wiley.com/doi/full/10.1002/sta4.70060)]
@@ -42,7 +42,6 @@ To address these questions, the authors introduce a statistical hypothesis testi
 
 ---
 
-
 ## 🧠 Key Insights
 
 - LLM-generated texts are **fluent but structurally different** from human writing.
@@ -70,9 +69,3 @@ To address these questions, the authors introduce a statistical hypothesis testi
   journal={arXiv preprint arXiv:2501.01273},
   year={2024}
 }
-```
-
----
-
-## 📄 License
-
