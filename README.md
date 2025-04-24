@@ -63,9 +63,13 @@ To address these questions, the authors introduce a statistical hypothesis testi
 ## 🧾 Citation
 
 ```bibtex
-@article{park2024llm,
+@article{park2025does,
   title={Does a Large Language Model Really Speak in Human-Like Language?},
   author={Park, Mose and Choi, Yunjin and Jeon, Jong-June},
-  journal={arXiv preprint arXiv:2501.01273},
-  year={2024}
+  journal={Stat},
+  volume={14},
+  number={2},
+  pages={e70060},
+  year={2025},
+  publisher={Wiley Online Library}
 }
