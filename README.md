@@ -5,7 +5,7 @@
 
 ---
 
-## 🔍 Overview
+## Overview
 
 Despite the growing fluency of large language models (LLMs), there is still limited understanding of how “human-like” their language actually is.  
 This study examines whether LLMs produce text that **structurally resembles human-written language** — not just on the surface, but in deeper patterns such as discourse structure and word usage communities.
@@ -20,7 +20,7 @@ The analysis is based on textual data embedding and structural comparisons of wr
 
 ---
 
-## 🔬 What We Did
+## What We Did
 
 - Collected a large dataset of customer reviews written by humans.
 - Used GPT-3.5 to paraphrase these reviews once, then again.
@@ -30,7 +30,7 @@ The analysis is based on textual data embedding and structural comparisons of wr
 
 ---
 
-## 💡 Core Idea
+## Core Idea
 
 This study is built around two central questions to probe the human-likeness of LLM-generated text:
 
@@ -42,7 +42,7 @@ To address these questions, the authors introduce a statistical hypothesis testi
 
 ---
 
-## 🧠 Key Insights
+## Key Insights
 
 - LLM-generated texts are **fluent but structurally different** from human writing.
 - Even small shifts in diversity parameters (like temperature) don't eliminate this difference — they only reduce it slightly.
@@ -51,7 +51,7 @@ To address these questions, the authors introduce a statistical hypothesis testi
 
 ---
 
-## 📁 Datasets Used
+## Datasets Used
 
 - **Human-written reviews** (originals)
 - **GPT-3.5 paraphrased reviews**
@@ -60,7 +60,7 @@ To address these questions, the authors introduce a statistical hypothesis testi
 
 ---
 
-## 🧾 Citation
+## Citation
 
 ```bibtex
 @article{park2025does,
